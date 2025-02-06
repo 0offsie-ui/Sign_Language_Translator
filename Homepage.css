@@ -1,0 +1,181 @@
+/* General Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    height: auto;
+    min-height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 200px;
+    min-width: 200px;
+    background-color: #8608ce;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 45px;
+}
+
+
+.logo {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.logo img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    border-radius: 8px;
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.sidebar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Main Content Styling */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically */
+    background: linear-gradient(to bottom, #2aa49d, #d6d4d4);
+}
+
+/* Heading Styling */
+.heading {
+    font-size: 36px; /* Adjust font size */
+    color: #070707; /* Set the text color to white to contrast the background */
+    text-align: center; /* Center align the text */
+    margin-bottom: 40px; /* Add space below the heading */
+    text-transform: uppercase; /* Optional: Make the text uppercase */
+    letter-spacing: 2px; /* Add a bit of spacing between letters */
+    font-weight: bold; /* Make the heading bold */
+    position: relative; /* For potential future hover effects */
+}
+
+/* Subject Grid Styling */
+.subject-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 50; /* Control the width for a better centering effect */
+}
+
+/* Box Styling */
+.box {
+    background-color: #ab2be6;
+    padding: 60px;
+    margin-left: 300px;
+    margin-right: -80px;
+    text-align: center;
+    font-size: 25px;
+    border: 2px solid #dddddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, background-color 0.3s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Creative Hover Effect */
+.box:hover {
+    background-color: #088bbe; /* Change background color on hover */
+    transform: scale(1.05);    /* Slight zoom-in effect */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    color: white;              /* Change text color to white */
+}
+
+.box:hover::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(45deg);
+    transition: all 0.4s ease;
+}
+
+.box:hover::before {
+    top: 0;
+    left: 0;
+}
+
+/* Text Styling Inside Boxes */
+.box h2 {
+    position: relative;
+    z-index: 1;
+}
+
+/* Sections */
+section {
+    background: white;
+    padding: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h2 {
+    text-align: center;
+    color: #6200ea;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.main-About {
+    display: block;
+}
+
+.main-About {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically */
+    background: linear-gradient(to bottom, #2aa49d, #d6d4d4);
+}

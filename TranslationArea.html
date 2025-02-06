@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language-to-Text Translator</title>
+    <link rel="stylesheet" href="Homepage.css">
+    <link rel="stylesheet" href="Start.css">
+    <!-- Add the latest FontAwesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Logo -->
+            <div class="logo">
+              <a href="Homepage.html"><img src="Web_Logo.jpg"></a>
+            </div>
+            <ul>
+                <li><a href="Homepage.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="AboutUs.html"><i class="fas fa-question-circle"></i> About Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Text Area -->
+        <div class = "start-content">
+            <div class = "container1">
+                <textarea id = "translationArea" class="text-area" placeholder="Translation will appear here..." readonly></textarea>
+            </div>
+            <div class = "translation-grid">
+                <button class = "button start" onclick="startRecognition()">Start Recognition</button>
+                <button class = "button stop" onclick="stopRecognition()">Stop Recognition</button>
+                <button class = "button back" onclick= "location.href ='Start.html'">Back</button>
+            </div>
+        </div>
+    </div>
+
+<!--Recognition Logic --> 
+<script>
+    let recognitionActive = false;
+
+function startRecognition() {
+  if (recognitionActive) {
+    alert('Recognition is already running.');
+    return;
+  }
+  recognitionActive = true;
+  const textArea = document.getElementById('translationArea');
+  textArea.value = 'Recognition started... Listening for input.';
+  
+  // Simulate translation
+  setTimeout(() => {
+    textArea.value = 'Hello! This is a sign language translation.';
+  }, 3000);
+}
+
+function stopRecognition() {
+  if (!recognitionActive) {
+    alert('Recognition is not running.');
+    return;
+  }
+  recognitionActive = false;
+  document.getElementById('translationArea').value = 'Recognition stopped.';
+}
+</script>
+
+</body>
+</html>

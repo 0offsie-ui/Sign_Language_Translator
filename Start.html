@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Language-to-Text Translator</title>
+    <link rel="stylesheet" href="Homepage.css">
+    <link rel="stylesheet" href="Start.css">
+    <!-- Add the latest FontAwesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="Homepage.html"><img src="Web_Logo.jpg"></a>
+            </div>
+            <ul>
+                <li><a href="Homepage.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="AboutUs.html"><i class="fas fa-question-circle"></i> About Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="start-content">
+        <div class = "start-grid">
+        <!-- Subject Grid -->
+        <h1>Welcome!</h1>
+            <button class="button start" onclick="location.href = 'TranslationArea.html'">Start Translating</button>
+            <button class="button connect" onclick="connectBluetooth()">Connect Bluetooth</button>
+            <button class="button back" onclick= "location.href ='Homepage.html'">Back</button>
+            </div>
+         </div>
+         </div>
+
+         <!-- Bluetooth Modal -->
+<div id="bluetoothModal" class="modal">
+    <div class="modal-content">
+        <p id="bluetoothMessage">Connecting to Bluetooth...</p>
+        <button class="button back" onclick="closeBluetoothModal()">Close</button>
+    </div>
+  </div>
+
+<script>
+    // Bluetooth connection simulation
+async function connectBluetooth() {
+  const modal = document.getElementById('bluetoothModal');
+  const message = document.getElementById('bluetoothMessage');
+  modal.style.display = 'flex';
+  message.textContent = 'Connecting to Bluetooth...';
+
+  try {
+    if (!navigator.bluetooth) {
+      throw new Error('Bluetooth is not supported on this browser.');
+    }
+
+    const device = await navigator.bluetooth.requestDevice({
+      acceptAllDevices: true
+    });
+
+    const server = await device.gatt.connect();
+    message.textContent = `Connected to ${device.name}`;
+  } catch (error) {
+    message.textContent = error.message;
+  }
+}
+
+function closeBluetoothModal() {
+  document.getElementById('bluetoothModal').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
