@@ -9,6 +9,9 @@
 
     <!-- Add the latest FontAwesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        p { text-align: left; }
+    </style>
 </head>
 <body>
     <div class = "container">
@@ -24,86 +27,111 @@
             </ul>
         </div> 
 
-        <!-- Main Content Wrapper -->
-        <div id="main-content" class="main-content">
-            <!-- Page 1: Our Mission and Our Vision -->
-            <div id="page1" class="page">
-                <!-- Our Mission Section -->
+        <!-- Main Content with paginated sections -->
+        <div class="main-content">
+            <!-- Page 1 -->
+            <div id="page1" class="about-page active">
+                <!-- About Us Page 1 Section -->
                 <section class="mission">
                     <h2>Our Mission</h2>
                     <p>Our mission is to bridge the communication gap between the deaf and hearing communities through innovative technology. We aim to create an accessible, accurate, and real-time Sign Language Translator Prototype that fosters inclusion and empowers individuals with hearing impairments.</p>
                 </section>
-                <!-- Our Vision Section -->
                 <section class="vision">
                     <h2>Our Vision</h2>
                     <p>We envision a world where everyone can communicate effortlessly, regardless of their hearing ability. Through continuous research, development, and collaboration, we strive to make our sign language translation technology widely available and highly effective.</p>
                 </section>
-                <div class="navigation" style="text-align: center;">
-                    <button class="button next" onclick="showPage(2)">Next</button>
-                </div>
+                <section class = "members">
+                    <h2>Meet the Team</h2>
+                    <ul>
+                        <li>Baguinaon, Tricha - ...</li>
+                        <li>Caasi, Xaverian Isaac - ...</li>
+                        <li>Ilao, Jhon Conrad - ...</li>
+                        <li>Mahilum, Allen Reeve - ...</li>
+                        <li>Musni, John David - ...</li>
+                        <li>Obar, Eunice Desiree - ...</li>
+                        <li>Rivera, Princess Lyka - ...</li>
+                        <li>Valencia, John Patrick - ...</li> 
+                    </ul>
             </div>
-
-            <!-- Page 2: What is Sign Language? and Why is Sign Language Important? -->
-            <div id="page2" class="page" style="display:none;">
-                <!-- What is Sign Language? Section -->
+            
+            <!-- Page 2 -->
+            <div id="page2" class="about-page">
+                <!-- About Us Page 2 Section -->
                 <section class="SignLanguangeInformation">
                     <h2>What is Sign Language?</h2>
-                    <p><strong>Sign Language</strong> is a language that uses visual gestures and signs, as opposed to vocal communication, to convey meaning. It is primarily used by the deaf and hard-of-hearing communities, but is also utilized by individuals with speech or language impairments. Sign language is not universal; different regions have their own systems, such as American Sign Language (ASL), British Sign Language (BSL), and Filipino Sign Language (FSL).</p>
+                    <p><strong>Sign Language</strong> is a language that uses visual gestures and signs, as opposed to vocal communication, to convey meaning. It is primarily used by the deaf and hard-of-hearing communities, but is also utilized by individuals with speech or language impairments. Different regions have their own systems.</p>
                 </section>
-                <!-- Why is Sign Language Important? Section -->
                 <section class="SignLanguangeInformation1">
                     <h2>Why is Sign Language Important?</h2>
-                    <p>Sign language is an essential tool for communication for those who cannot hear or speak. It allows for the expression of thoughts, feelings, and ideas, enabling deaf individuals to engage with others, participate in society, and access education and employment opportunities.</p>
+                    <p>Sign language is an essential tool for communication for those who cannot hear or speak. It enables expression and participation in society, providing access to education and employment opportunities.</p>
                 </section>
-                <div class="navigation" style="text-align: center;">
-                    <button class="button back" onclick="showPage(1)">Back</button>
-                    <button class="button next" onclick="showPage(3)">Next</button>
-                </div>
-            </div>
-
-            <!-- Page 3: History & Common Sign Languages, How Can You Learn Sign Language? -->
-            <div id="page3" class="page" style="display:none;">
-                <!-- History of Sign Language Section -->
                 <section class="SignLanguangeInformation2">
                     <h2>History of Sign Language</h2>
-                    <p>The history of sign language dates back to ancient times, with evidence of hand gestures being used in early civilizations. However, modern sign languages began to develop in the 18th and 19th centuries. One of the earliest schools for the deaf, the <i>French National Institute for Deaf-Mutes</i>, was founded by Charles-Michel de l’Épée, who helped establish the foundation for sign language.</p>
+                    <p>The history of sign language dates back to ancient times, with modern systems developing in the 18th and 19th centuries. Early pioneers laid the foundation for today’s diverse sign languages.</p>
                 </section>
-                <!-- Common Sign Languages Section -->
+            </div>
+            
+            <!-- Page 3 -->
+            <div id="page3" class="about-page">
+                <!-- About Us Page 3 Section -->
                 <section class="SignLanguangeInformation3">
                     <h2>Common Sign Languages</h2>
                     <ul>
                         <li><strong>American Sign Language (ASL):</strong> Used primarily in the United States and Canada.</li>
                         <li><strong>British Sign Language (BSL):</strong> Used in the United Kingdom.</li>
                         <li><strong>Filipino Sign Language (FSL):</strong> Used in the Philippines.</li>
-                        <li><strong>International Sign (IS):</strong> A type of sign language that is used in international communication between sign language users.</li>
+                        <li><strong>International Sign (IS):</strong> Used for international communication.</li>
                     </ul>
                 </section>
-                <!-- How Can You Learn Sign Language Section -->
                 <section class="SignLanguangeInformation4">
                     <h2>How Can You Learn Sign Language?</h2>
-                    <p>Learning sign language involves practice and immersion. Many deaf schools, online courses, and local communities offer resources for learning. Participating in a deaf community and practicing with sign language users is key to becoming fluent.</p>
+                    <p>Learning sign language involves practice and immersion. Many schools, online courses, and local communities provide resources, and engaging with sign language users is key.</p>
                 </section>
-                <div class="navigation" style="text-align: center;">
-                    <button class="button back" onclick="showPage(2)">Back</button>
-                </div>
             </div>
             
-            <!-- Footer applicable to all pages -->
+            <!-- Navigation Buttons -->
+            <div class="translation-grid">
+                <button class="button start" id="prevBtn">Back</button>
+                <button class="button start" id="homeBtn" onclick="location.href='Homepage.html'">Home</button>
+                <button class="button start" id="nextBtn">Next</button>
+            </div>
+            
+            <!-- Footer -->
             <footer>
                 <p>&copy; 2025 Sign Language Translator Project. All rights reserved.</p>
             </footer>
         </div>
     </div>
     
+    <!-- Inline CSS for page switching -->
+    <style>
+        .about-page { display: none; }
+        .about-page.active { display: block; }
+    </style>
+    
     <!-- Navigation Script -->
     <script>
-        function showPage(pageNumber) {
-            const pages = document.getElementsByClassName('page');
-            for (let i = 0; i < pages.length; i++) {
-                pages[i].style.display = 'none';
-            }
-            document.getElementById('page' + pageNumber).style.display = 'block';
+        const pages = ['page1', 'page2', 'page3'];
+        let currentPage = 0;
+        function showPage(index) {
+            pages.forEach((id, i) => {
+                document.getElementById(id).classList.toggle('active', i === index);
+            });
+            updateNavButtons();
         }
+        function updateNavButtons() {
+            document.getElementById('prevBtn').style.display = currentPage === 0 ? 'none' : 'inline-block';
+            document.getElementById('homeBtn').style.display = currentPage === 0 ? 'inline-block' : 'none';
+            document.getElementById('nextBtn').style.display = currentPage === (pages.length - 1) ? 'none' : 'inline-block';
+        }
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            if (currentPage > 0) { currentPage--; showPage(currentPage); }
+        });
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            if (currentPage < pages.length - 1) { currentPage++; showPage(currentPage); }
+        });
+        // Initialize navigation buttons on page load
+        showPage(currentPage);
     </script>
 </body>
 </html>
