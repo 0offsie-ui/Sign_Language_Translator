@@ -20,6 +20,8 @@ body {
     flex-direction: column;
     align-items: center;
     padding-top: 45px;
+    position: fixed; /* Added to fix the sidebar */
+    height: 100vh;   /* Full viewport height */
 }
 
 
@@ -71,6 +73,8 @@ body {
     justify-content: center;  /* Center horizontally */
     align-items: center;      /* Center vertically */
     background: linear-gradient(to bottom, #2aa49d, #d6d4d4);
+    margin-left: 200px; /* Added to prevent overlap with fixed sidebar */
+    text-align: center; /* Added to center all content */
 }
 
 /* Heading Styling */
@@ -88,9 +92,11 @@ body {
 /* Subject Grid Styling */
 .subject-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
     gap: 20px;
-    width: 50; /* Control the width for a better centering effect */
+    /* Removed fixed width property for better centering */
+
+    
 }
 
 /* Box Styling */
@@ -178,4 +184,63 @@ footer {
     justify-content: center;  /* Center horizontally */
     align-items: center;      /* Center vertically */
     background: linear-gradient(to bottom, #2aa49d, #d6d4d4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;               /* Make sidebar full width */
+        position: static;           /* Remove fixed positioning */
+        height: auto;               /* Let height adjust automatically */
+        flex-direction: row;        /* Arrange items horizontally */
+        padding-top: 10px;          /* Reduce top padding */
+        justify-content: center;    /* Center sidebar content */
+    }
+    .sidebar ul {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+    }
+    .sidebar ul li {
+        margin: 0 10px;
+    }
+    .main-content {
+        margin-left: 0;             /* Remove left margin for mobile */
+    }
+    body {
+        font-size: 0.9em;
+    }
+    .heading {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
+    .button {
+        font-size: 0.9rem;
+    }
+    /* ...other selectors as needed... */
+}
+
+/* Additional mobile adjustments */
+@media (max-width: 480px) {
+    .container {
+        flex-direction: column;
+    }
+    .sidebar {
+        padding: 5px;
+    }
+    .heading {
+        font-size: 1.8rem; /* Slightly smaller heading */
+        margin-bottom: 20px;
+    }
+    .subject-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+    }
+    .box {
+        padding: 30px;
+        font-size: 20px;
+        margin: 0;
+    }
 }

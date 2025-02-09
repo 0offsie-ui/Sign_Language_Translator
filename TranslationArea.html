@@ -38,31 +38,40 @@
 
 <!--Recognition Logic --> 
 <script>
+    window.addEventListener('load', () => {
+      const textArea = document.getElementById('translationArea');
+      const arduinoOutput = localStorage.getItem("arduinoOutput");
+      if (arduinoOutput) {
+        textArea.value = arduinoOutput;
+        localStorage.removeItem("arduinoOutput");
+      }
+    });
+
     let recognitionActive = false;
 
-function startRecognition() {
-  if (recognitionActive) {
-    alert('Recognition is already running.');
-    return;
-  }
-  recognitionActive = true;
-  const textArea = document.getElementById('translationArea');
-  textArea.value = 'Recognition started... Listening for input.';
-  
-  // Simulate translation
-  setTimeout(() => {
-    textArea.value = 'Hello! This is a sign language translation.';
-  }, 3000);
-}
+    function startRecognition() {
+      if (recognitionActive) {
+        alert('Recognition is already running.');
+        return;
+      }
+      recognitionActive = true;
+      const textArea = document.getElementById('translationArea');
+      textArea.value = 'Recognition started... Listening for input.';
+      
+      // Simulate translation
+      setTimeout(() => {
+        textArea.value = 'Hello! This is a sign language translation.';
+      }, 3000);
+    }
 
-function stopRecognition() {
-  if (!recognitionActive) {
-    alert('Recognition is not running.');
-    return;
-  }
-  recognitionActive = false;
-  document.getElementById('translationArea').value = 'Recognition stopped.';
-}
+    function stopRecognition() {
+      if (!recognitionActive) {
+        alert('Recognition is not running.');
+        return;
+      }
+      recognitionActive = false;
+      document.getElementById('translationArea').value = 'Recognition stopped.';
+    }
 </script>
 
 </body>

@@ -91,6 +91,8 @@ button:hover {
     justify-content: center;
     align-items: center;
     background: linear-gradient(to bottom, #2aa49d, #d6d4d4);
+    margin-left: 200px; /* Added to prevent overlap with fixed sidebar */
+    text-align: center; /* Added to center all content */
 }
 /* Start Grid Styling */
 .start-grid{
@@ -100,22 +102,69 @@ button:hover {
     align-items: center; 
 }
 
-/* Text Area Customization*/
+/* Text Area Customization */
 .text-area {
-    width: 100%; /* Makes it responsive */
-    max-width: 1000px; /* Prevents it from exceeding the container */
-    min-width: 800px; /* Ensures it doesn't shrink too much */
-    height: 100%; /* Default height */
-    min-height: 300px; /* Minimum height */
-    max-height: 700px; /* Maximum height */
+    /* Updated for responsiveness and centered alignment */
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    min-width: 1000px;
+    max-width: 2000px;
+    height: auto;
+    min-height: 300px;
+    max-height: 700px;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #020202;
     border-radius: 8px;
-    font-size: 16px;
-    resize: none; /* Allows vertical/horizontal resizing */
+    font-size: 5rem;
+    resize: none;
     background-color: #f9f9f9;
     color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .text-area {
+        width: 95%;
+        font-size: 0.9rem;
+    }
+}
+
+/* Responsive typography adjustments (excluding .text-area) */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.9em;
+    }
+    h1 {
+        font-size: 1.6rem;
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
+    .button {
+        font-size: 0.9rem;
+    }
+    /* ...other selectors as needed... */
+}
+
+/* Additional mobile adjustments */
+@media (max-width: 480px) {
+    .container1 {
+        padding: 15px;
+        width: 95%;
+    }
+    .start-content {
+        margin-left: 0; /* Remove fixed margin for mobile */
+        padding: 10px;
+    }
+    .start-grid {
+        gap: 10px;
+    }
+    .button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
 }
 
 /* Modal */
