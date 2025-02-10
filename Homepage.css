@@ -20,11 +20,8 @@ body {
     flex-direction: column;
     align-items: center;
     padding-top: 45px;
-    position: fixed; /* Ensures the sidebar stays in view */
-    top: 0;
-    bottom: 0;
-    overflow-y: auto; /* Allows scrolling if content exceeds viewport */
 }
+
 
 .logo {
     text-align: center;
@@ -74,14 +71,6 @@ body {
     justify-content: center;  /* Center horizontally */
     align-items: center;      /* Center vertically */
     background: linear-gradient(to bottom, #2aa49d, #d6d4d4);
-    margin-left: 200px; /* Prevents overlap with the fixed sidebar */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .main-content {
-        margin-left: 0; /* Remove margin for smaller screens */
-    }
 }
 
 /* Heading Styling */
@@ -108,8 +97,8 @@ body {
 .box {
     background-color: #ab2be6;
     padding: 60px;
-    margin-left: 300px;
-    margin-right: -80px;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     font-size: 25px;
     border: 2px solid #dddddd;
@@ -189,4 +178,14 @@ footer {
     justify-content: center;  /* Center horizontally */
     align-items: center;      /* Center vertically */
     background: linear-gradient(to bottom, #2aa49d, #d6d4d4);
+}
+
+/* Mobile portrait: remove sidebar */
+@media only screen and (orientation: portrait) and (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+  .container {
+    flex-direction: column;
+  }
 }

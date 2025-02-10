@@ -25,16 +25,37 @@
 
         <!-- Main Content -->
         <div class="main-content">
+            <!-- Updated Logo Header with Dropdown -->
+            <div id="logoHeader" style="position: relative; text-align: center; cursor: pointer; margin-bottom: 20px;">
+                <img src="Web_Logo.jpg" alt="Logo" style="max-width: 100px;">
+                <div id="logoDropdown" style="display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); z-index: 9999; background-color: #8608ce; padding: 10px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                    <a href="Homepage.html" style="color: white; display: block; text-decoration: none; padding: 5px;">Home</a>
+                    <a href="AboutUs.html" style="color: white; display: block; text-decoration: none; padding: 5px;">About</a>
+                </div>
+            </div>
+            
             <!-- Title for the field -->
-            <h1 class="heading">Towards Seamless Communication: Design and Implemented of a Sign language-to-Text translation Device</h1>
-             
+            <h1 class="heading">Towards Seamless Communication: Design and Implementation of a Sign language-to-Text translation Device</h1>
     
-        <!-- Subject Grid -->
-         <div class="start-grid" style="text-align: center;">
-            <!-- Chapter button -->
-            <button class="box" style="margin: 0 auto; display: block;" onclick="location.href='Start.html'">Start</button>
-         </div>
+        <!-- Updated Subject Grid for centering Start button -->
+        <div class="subject-grid" style="display: flex; justify-content: center; align-items: center;">
+        <!-- Chapter buttons -->
+        <button class="box" onclick="location.href='Start.html'">Start</button>
+            </div>
         </div>
     </div>
+
+    <!-- Inline Script for Dropdown Toggle -->
+    <script>
+        const logoHeader = document.getElementById('logoHeader');
+        const logoDropdown = document.getElementById('logoDropdown');
+        logoHeader.addEventListener('click', (e) => {
+            e.stopPropagation();
+            logoDropdown.style.display = logoDropdown.style.display === 'none' ? 'block' : 'none';
+        });
+        document.body.addEventListener('click', () => {
+            logoDropdown.style.display = 'none';
+        });
+    </script>
 </body>
 </html>

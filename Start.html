@@ -25,60 +25,95 @@
 
         <!-- Main Content -->
         <div class="start-content">
-        <div class = "start-grid">
-        <!-- Subject Grid -->
-        <h1>Welcome!</h1>
-            <button class="button start" onclick="location.href = 'TranslationArea.html'">Start Translating</button>
-            <button class="button connect" onclick="connectBluetooth()">Connect Bluetooth</button>
-            <button class="button back" onclick= "location.href ='Homepage.html'">Back</button>
+            <!-- Added Dropdown Header -->
+            <div id="logoHeader" style="position: relative; text-align: center; cursor: pointer; margin-bottom: 20px;">
+                <img src="Web_Logo.jpg" alt="Logo" style="max-width: 100px;">
+                <div id="logoDropdown" style="display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); z-index: 9999; background-color: #8608ce; padding: 10px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                    <a href="Homepage.html" style="color: white; display: block; text-decoration: none; padding: 5px;">Home</a>
+                    <a href="AboutUs.html" style="color: white; display: block; text-decoration: none; padding: 5px;">About</a>
+                </div>
             </div>
-         </div>
-         </div>
-
-         <!-- Bluetooth Modal -->
-<div id="bluetoothModal" class="modal">
-    <div class="modal-content">
-        <p id="bluetoothMessage">Connecting to Bluetooth...</p>
-        <button class="button back" onclick="closeBluetoothModal()">Close</button>
+            <div class="start-grid">
+                <h1>Welcome!</h1>
+                <button class="button start" onclick="location.href = 'TranslationArea.html'">Start Translating</button>
+                <button class="button connect" onclick="connectBluetooth()">Connect Bluetooth</button>
+                <button class="button unpair" onclick="unpairDevices()">Unpair Devices</button>
+                <button class="button back" onclick= "location.href ='Homepage.html'">Back</button>
+            </div>
+        </div>
     </div>
-  </div>
 
-<!-- Scripts -->
+    <!-- Bluetooth Modal -->
+    <div id="bluetoothModal" class="modal">
+        <div class="modal-content">
+            <p id="bluetoothMessage">Connecting to Bluetooth...</p>
+            <button class="button back" onclick="closeBluetoothModal()">Close</button>
+        </div>
+    </div>
 
-<script>
-    // Bluetooth connection simulation
-async function connectBluetooth() {
-  const modal = document.getElementById('bluetoothModal');
-  const message = document.getElementById('bluetoothMessage');
-  modal.style.display = 'flex';
-  message.textContent = 'Connecting to Bluetooth...';
+    <!-- Scripts -->
+    <script>
+        // Bluetooth connection simulation
+        async function connectBluetooth() {
+            const modal = document.getElementById('bluetoothModal');
+            const message = document.getElementById('bluetoothMessage');
+            modal.style.display = 'flex';
+            message.textContent = 'Connecting to Bluetooth...';
 
-  try {
-    if (!navigator.bluetooth) {
-      throw new Error('Bluetooth is not supported on this browser.');
-    }
+            try {
+                if (!navigator.bluetooth) {
+                    throw new Error('Bluetooth is not supported on this browser.');
+                }
 
-    const device = await navigator.bluetooth.requestDevice({
-      acceptAllDevices: true
-    });
-    const server = await device.gatt.connect();
-    
-    // Simulate receiving Arduino Nano output via Bluetooth
-    let arduinoOutput = "Arduino Nano Output: [Sample data from Arduino]";
-    localStorage.setItem("arduinoOutput", arduinoOutput);
-    
-    message.textContent = `Connected to ${device.name}.`;
-    setTimeout(() => { window.location.href = 'TranslationArea.html'; }, 2000);
-  } catch (error) {
-    message.textContent = error.message;
-  }
-}
+                const device = await navigator.bluetooth.requestDevice({
+                    acceptAllDevices: true
+                });
+                const server = await device.gatt.connect();
 
-function closeBluetoothModal() {
-  document.getElementById('bluetoothModal').style.display = 'none';
-}
+                // Simulate receiving Arduino Nano output via Bluetooth
+                let arduinoOutput = "Arduino Nano Output: [Sample data from Arduino]";
+                localStorage.setItem("arduinoOutput", arduinoOutput);
 
-</script>
+                message.textContent = `Connected to ${device.name}.`;
+                setTimeout(() => { window.location.href = 'TranslationArea.html'; }, 2000);
+            } catch (error) {
+                message.textContent = error.message;
+            }
+        }
 
+        async function unpairDevices() {
+            if (navigator.bluetooth && navigator.bluetooth.getDevices) {
+                try {
+                    const devices = await navigator.bluetooth.getDevices();
+                    devices.forEach(device => {
+                        if (device.gatt && device.gatt.connected) {
+                            device.gatt.disconnect();
+                            console.log('Disconnected:', device.name);
+                        }
+                    });
+                    alert("Unpaired all connected devices.");
+                } catch (error) {
+                    alert("Error unpairing devices: " + error);
+                }
+            } else {
+                alert("Unpairing is not supported on this browser.");
+            }
+        }
+
+        function closeBluetoothModal() {
+            document.getElementById('bluetoothModal').style.display = 'none';
+        }
+
+        // Append Dropdown Toggle Script
+        const logoHeader = document.getElementById('logoHeader');
+        const logoDropdown = document.getElementById('logoDropdown');
+        logoHeader.addEventListener('click', (e) => {
+            e.stopPropagation();
+            logoDropdown.style.display = logoDropdown.style.display === 'none' ? 'block' : 'none';
+        });
+        document.body.addEventListener('click', () => {
+            logoDropdown.style.display = 'none';
+        });
+    </script>
 </body>
 </html>

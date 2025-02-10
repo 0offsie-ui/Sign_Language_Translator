@@ -1,5 +1,7 @@
 /* General Styling */
-body {
+html, body {
+    height: 100%;
+    background: linear-gradient(to bottom, #2aa49d, #d6d4d4);
     margin: 0;
     font-family: Arial, sans-serif;
 }
@@ -14,7 +16,7 @@ h1 {
 /* Container Customization */
 .container1 {
     text-align: center;
-    background: rgb(255, 255, 255);
+    background: transparent;
     color: #333;
     border-radius: 15px;
     padding: 30px;
@@ -79,6 +81,11 @@ button.back {
     color: white;
 }
 
+button.unpair {
+    background-color: #ab2be6;
+    color: white;
+}
+
 button:hover {
     filter: brightness(1.1);
 }
@@ -107,7 +114,7 @@ button:hover {
     /* Updated for responsiveness and centered alignment */
     display: block;
     margin: 0 auto;
-    width: 50rem;
+    width: 35rem;
     max-width: 100%;
     height: auto;
     min-height: 300px;
@@ -205,6 +212,52 @@ button:hover {
     flex-direction: row;
     justify-content: center;
     align-items: center; 
+}
+
+/* iPhone XR Compatibility */
+@media only screen and (max-width: 414px) {
+  .text-area {
+    width: 90%;
+    font-size: 16px;
+    min-height: 250px;
+  }
+  .button {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+  .container1 {
+    padding: 20px;
+  }
+  .start-content {
+    margin-left: 0;
+    padding: 10px;
+  }
+}
+
+/* iPhone XR and small phone adjustments */
+@media only screen and (max-width: 414px) {
+  /* Updated Text Area Styling for clarity */
+  #translationArea.text-area {
+    width: 95%;              /* Increased width */
+    height: calc(100vh - 100px); /* Adjusted height for padding */
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 24px;         /* Larger font size */
+  }
+  /* Centered Back Button Styling */
+  .back-mobile {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #ab2be6;
+    color: white;
+    border: none;
+    border-radius: 0;
+  }
 }
 
 
